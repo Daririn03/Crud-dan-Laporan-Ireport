@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e00262bf-de5a-403b-9e19-125c4c4ebe24">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="22"/>
+	<queryString>
+		<![CDATA[SELECT
+     pekerjaan.`id_pekerjaan` AS pekerjaan_id_pekerjaan,
+     pekerjaan.`nm_pekerjaan` AS pekerjaan_nm_pekerjaan
+FROM
+     `pekerjaan` pekerjaan]]>
+	</queryString>
+	<field name="pekerjaan_id_pekerjaan" class="java.lang.String"/>
+	<field name="pekerjaan_nm_pekerjaan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="985f4cc7-0dc4-4476-8b67-5d7139569315"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA PEKERJAAN]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="240" y="20" width="100" height="20" uuid="aff167a5-7d66-4407-bc1e-102fa55ad051"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="-1" y="0" width="556" height="20" backcolor="#FFCCCC" uuid="d534358e-1d96-4b66-bbf3-292bb8dff247"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="99" height="20" uuid="3109657a-1020-420f-9242-20bc9b1a03c9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="0" width="158" height="20" uuid="fa07219e-a057-4867-a763-f3896bca618f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PEKERJAAN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="99" height="20" uuid="13572516-9273-4bbf-b5f4-bf1f63e1435d"/>
+				<textFieldExpression><![CDATA[$F{pekerjaan_id_pekerjaan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="116" y="0" width="158" height="20" uuid="7edd0d87-125b-4e9c-a5a0-da86bf8b57c7"/>
+				<textFieldExpression><![CDATA[$F{pekerjaan_nm_pekerjaan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="5" width="80" height="20" uuid="6ba7f790-8860-43bd-8f94-5b8565b6f688"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="5" width="40" height="20" uuid="5095c294-a122-4464-ac7a-b0d5d707737f"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
